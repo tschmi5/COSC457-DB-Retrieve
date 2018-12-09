@@ -30,8 +30,11 @@ var CRUD = function () {
         }
         return statement += ")";
     }
-    that.readData = function (tableName, cols, constraints) {
+    that.readData = function (tableName, cols, constraints,distinct) {
         var statement = "SELECT ";
+        if(distinct){
+            statement += "DISTINCT ";
+        }
 
         for (var i = 0; i < cols.length; i++) {
             statement += cols[i];
